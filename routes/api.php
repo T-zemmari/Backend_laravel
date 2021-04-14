@@ -10,5 +10,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // User Routes  
 
-// Route::post('/register', [UserController::class, 'registerUser']);
-// Route::get('/profile',[UserController::class, 'getOneUser']);
+ Route::post('/register', [UserController::class, 'registerUser']);
+ Route::get('/profile',[UserController::class, 'getOneUser']);
