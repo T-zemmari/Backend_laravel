@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -10,4 +10,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // User Routes  
 
-//Route::get('register',)
+Route::get('/register',[UserController::class, 'registerUser']);
+Route::get('/profile',[UserController::class, 'getOneUser']);

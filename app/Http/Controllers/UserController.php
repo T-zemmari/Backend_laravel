@@ -43,6 +43,7 @@ class UsuarioController extends Controller
                 'adress' =>$adress
             ]);
 
+            
              
         } catch (QueryException $error){
             return $error;
