@@ -1,54 +1,51 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Usuario;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class userController extends Controller
+class UsuarioController extends Controller
 {
-    // Traer a Todos los usuarios: 
+   
+    public function getOneUser($nickname) {
+        try {
 
-
-               public function getAllUsers(){
-
-                 // Route::get('/',function()
-                 //    return view('users');
-                 // })
-
-               }
-
-    // Traer a un solo usuario: 
-
-                public function getOneUser(){
-
-
-                }
-
-
-    // Registrar a un usuario : 
- 
-                public function registerOne(){
+            return Usuario::all()->where('nickname', '=', $nickname)
+            ->makeHidden(['password'])->keyBy('id');
        
-       
-                }
+        } catch (QueryException $error){
+            return $error;
+        }
+    }
 
+        // Registrar a un usuario
 
-    // Actualizar los datos de un usuario : 
+           public function registerUser(Request $request){
 
-                public function  updateOne(){
+           $nickname = $request->input('nickname');
+           $password = $request->input('password');
+           $name = $request->input('name');
+           $email = $request-> input('email');
+           $phone = $request-> input('phone');
+           $adress = $request-> input('adress');
 
+           $password = Hash::make($password);
 
+        try{
+            return Usuario::create([
+                'nickname' => $nickname,
+                'password' => $password,
+                'name' => $name,
+                'email' => $email,
+                'phone' =>$phone,
+                'adress' =>$adress
+            ]);
 
-                }
-
-
-    // Borrar a un usuario de la base de datos : 
-
-
-                public function deleteOne(){
-
-
-
-                }
-
-
+             
+        } catch (QueryException $error){
+            return $error;
+        }
+    }
 }
