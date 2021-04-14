@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     //
     //Función encargada de buscar un usuario dado un nick
     public function getOneUser($nickname) {
         try {
 
-            return Usuario::all()->where('nickname', '=', $nickname)
+            return User::all()->where('nickname', '=', $nickname)
             ->makeHidden(['password'])->keyBy('id');
        
         } catch (QueryException $error){
@@ -35,7 +35,7 @@ class UsuarioController extends Controller
            $password = Hash::make($password);
 
         try{
-            return Usuario::create([
+            return User::create([
                 'nickname' => $nickname,
                 'name' => $name,
                 'password' => $password,
