@@ -11,7 +11,7 @@ class Membresia extends Model
 
     protected $fillable = ['userid','grupoid'];
 
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo('App\Models\User','userid','id');
     }
