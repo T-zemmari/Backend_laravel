@@ -21,6 +21,7 @@ class CreateUsers extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('adress');
+            $table->string('token');
             $table->timestamps();
         });
     }

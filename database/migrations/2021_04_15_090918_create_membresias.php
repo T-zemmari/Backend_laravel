@@ -15,16 +15,16 @@ class CreateMembresias extends Migration
     {
         Schema::create('membresias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('iduser');                
-            $table->foreign('iduser', 'fk_membrecias_user')
-            ->on('users')
-            ->references('id')
-            ->onDelete('restrict');
-            $table->unsignedBigInteger('idgrupo');                  
-            $table->foreign('idgrupo', 'fk_membrecias_grupos')   
+             $table->unsignedBigInteger('userid');                
+             $table->foreign('userid', 'fk_membresias_users')
+             ->on('users')
+             ->references('id')
+             ->onDelete('restrict');
+             $table->unsignedBigInteger('grupoid');                  
+             $table->foreign('grupoid', 'fk_membresias_grupos')   
             ->on('grupos')
-            ->references('id')
-            ->onDelete('restrict');
+             ->references('id')
+             ->onDelete('restrict');
             $table->timestamps();
         });
     }

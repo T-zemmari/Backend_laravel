@@ -15,13 +15,14 @@ class User extends Model
     'name',
     'email',
     'phone',
-    'adress'
+    'adress',
+    'token'
     ];
 
-    public function membresia()
-    {
-        return $this->hasMany('App\Models\Membresia','iduser');
-    }
+     public function membresia()
+     {
+         return $this->hasMany('App\Models\Membresia','userid');
+     }
 
 
 

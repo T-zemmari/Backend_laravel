@@ -14,7 +14,7 @@ class Grupo extends Model
 
     public function membresia()
     {
-        return $this->hasMany('App\Models\Membresia','idgrupo');
+        return $this->hasMany('App\Models\Membresia','grupoid');
     }
 }
 
