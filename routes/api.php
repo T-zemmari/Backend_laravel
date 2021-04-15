@@ -13,6 +13,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
  Route::post('/register', [UserController::class, 'registerUser']);
+ Route::get('/users',[UserController::class,'getAllUsers']);
  Route::post('/login',[UserController::class , 'loginUser']);
  Route::get('/profile/{id}',[UserController::class, 'getUserById']);
  Route::get('/profile/{nickname}',[UserController::class, 'getUserByNickname']);
@@ -23,3 +24,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  
  Route::post('/addGame', [GameController::class, 'createGame']);
+ Route::get('/addGame',[GameController::class,'indexGame']);

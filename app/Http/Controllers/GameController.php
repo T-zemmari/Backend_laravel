@@ -28,6 +28,12 @@ class GameController extends Controller
          return $error;
      }
  }
+
+
+ public function indexGame(){
+
+    return Game::all();
+ }
    
     //
 }

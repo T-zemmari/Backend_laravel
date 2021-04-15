@@ -31,6 +31,15 @@ class UserController extends Controller
         }
     }
 
+    public function getAllUsers() {
+        try {
+
+            return User::all()->makeHidden(['password','token']);
+       
+        } catch (QueryException $error){
+            return $error;
+        }
+    }
     
 
     public function registerUser(Request $request){
