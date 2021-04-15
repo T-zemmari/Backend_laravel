@@ -34,9 +34,6 @@ class UserController extends Controller
     
 
     public function registerUser(Request $request){
-
-       
-
            $nickname = $request->input('nickname');
            $name = $request->input('name');
            $password = $request->input('password');
@@ -55,12 +52,49 @@ class UserController extends Controller
                 'phone' =>$phone,
                 'adress'=>$adress
             ]);
-
-             
-        } catch (QueryException $error){
+            } catch (QueryException $error){
             return $error;
         }
     }
+
+
+    public function loginUser(Request $request){
+
+        $email = $request->input('email');
+        $password = $request->input('password'); 
+        
+        try {
+             $validate = User::select('password')
+            ->where('email', 'LIKE', $email)
+            ->first();
+
+            if(!$validate){
+                return response()->json([
+                'error' => "Email o password incorrecto"
+                ]); 
+            }
+            
+            $hashed = $validate->password;
+            if(Hash::check($password, $hashed)){
+                $length = 50;
+                $token = bin2hex(random_bytes($length));
+                User::where('email',$email)
+                ->update(['token' => $token]);
+                return User::where('email', 'LIKE', $email)
+                ->get();
+            
+            }else{
+                return response()->json([
+                    //password incorrecto
+                    'error' => "Email o password incorrecto"]);
+            }
+        } catch(QueryException $error){
+            return response()->$error;
+        }
+
+
+    }
+
 
     public function updateUser(Request $request){
         
