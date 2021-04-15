@@ -76,8 +76,8 @@ class UserController extends Controller
             
             $hashed = $validate->password;
             if(Hash::check($password, $hashed)){
-                $length = 50;
-                $token = bin2hex(random_bytes($length));
+              
+                $token = bin2hex(random_bytes(50));
                 User::where('email',$email)
                 ->update(['token' => $token]);
                 return User::where('email', 'LIKE', $email)
@@ -85,7 +85,7 @@ class UserController extends Controller
             
             }else{
                 return response()->json([
-                    //password incorrecto
+                   
                     'error' => "Email o password incorrecto"]);
             }
         } catch(QueryException $error){
