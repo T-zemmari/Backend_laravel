@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\GrupoController;
-use App\Models\Membresia;
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
