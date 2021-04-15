@@ -8,18 +8,30 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //
-    //Función encargada de buscar un usuario dado un nick
-    public function getOneUser($nickname) {
+    
+    public function getUserById($id) {
         try {
 
-            return User::all()->where('nickname', '=', $nickname)
+            return User::all()->where('id', '=', $id)
             ->makeHidden(['password'])->keyBy('id');
        
         } catch (QueryException $error){
             return $error;
         }
     }
+
+    public function getUserByNickname($nickname) {
+        try {
+
+            return User::all()->where('id', '=', $nickname)
+            ->makeHidden(['password'])->keyBy('id');
+       
+        } catch (QueryException $error){
+            return $error;
+        }
+    }
+
+    
 
     public function registerUser(Request $request){
 
@@ -49,4 +61,42 @@ class UserController extends Controller
             return $error;
         }
     }
+
+    public function updateUser(Request $request){
+        
+        $nickname = $request->input('nickname');
+        $name = $request->input('name');
+        $phone = $request-> input('phone');
+        $adress = $request-> input('adress');
+        $userId = $request->input('id');
+        try{
+        return User:: where('id','=',$userId)->update(
+            [
+                'nickname' => $nickname,
+                'name' => $name,
+                'phone' =>$phone,
+                'adress'=>$adress
+            ]);
+       }catch(QueryException $error){
+        return $error;
+     }
+    }
+
+    public function deleteUser(Request $request){
+
+        $userId = $request->input('id');
+
+        try{
+              return User::where('id','=',$userId)->delete();
+   
+        }catch(QueryException $error){
+           return $error;
+        }
+       }
+
+
+
+
+
+
 }
