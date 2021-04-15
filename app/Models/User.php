@@ -18,5 +18,12 @@ class User extends Model
     'adress'
     ];
 
+    public function membresia()
+    {
+        return $this->hasMany('App\Models\Membresia','iduser');
+    }
+
+
+
   
 }
