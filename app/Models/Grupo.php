@@ -9,7 +9,13 @@ class Grupo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','owner'];
+    protected $fillable = 
+    [
+    'name',
+    'owner',
+    'userId',
+    'gameId'
+    ];
 
 
     public function membresia()
