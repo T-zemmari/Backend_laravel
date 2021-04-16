@@ -11,13 +11,17 @@ class GrupoController extends Controller
     public function addGroup(Request $request){
 
         $name = $request->Input('name');
-        $owner = $request->Input('owner');
+        $nickname = $request->Input('owner');
+        $userid = $request->input('userid');
+        $gameid =$request->input('gameid');
 
         try{
             return Grupo::create([
 
                 'name'=>$name,
-                'owner'=>$owner
+                'owner'=>$nickname,
+                'userid'=>$userid,
+                'gameid'=>$gameid
               ]);
 
         }catch (QueryException $error){
