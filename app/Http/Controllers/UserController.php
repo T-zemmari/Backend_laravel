@@ -107,15 +107,14 @@ class UserController extends Controller
 
     public function updateUser(Request $request){
         
-        $nickname = $request->input('nickname');
         $name = $request->input('name');
         $phone = $request-> input('phone');
         $adress = $request-> input('adress');
+        
         $userId = $request->input('id');
         try{
         return User:: where('id','=',$userId)->update(
             [
-                'nickname' => $nickname,
                 'name' => $name,
                 'phone' =>$phone,
                 'adress'=>$adress
