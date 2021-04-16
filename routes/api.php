@@ -32,10 +32,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  //Membresia Routes
 
- Route::post('/profile/{nickname}/addParty',[MembresiaController::class,'addParty']);
+ Route::post('/Party',[MembresiaController::class,'addParty']);
  Route::get('/Parties',[MembresiaController::class,'getAllParties']);
 
  //Group Routes
 
- Route::post('/grups',[GrupoController::class,'addGrup']);
- Route::get('/grups',[GrupoController::class,'showAllGrups']);
+ Route::post('/groups',[GrupoController::class,'addGroup']);
+ Route::get('/groups',[GrupoController::class,'showAllGroups']);

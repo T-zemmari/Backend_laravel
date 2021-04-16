@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class GrupoController extends Controller
 {
-    public function addGrup(Request $request){
+    public function addGroup(Request $request){
 
         $name = $request->Input('name');
         $owner = $request->Input('owner');
@@ -23,7 +23,7 @@ class GrupoController extends Controller
         }catch (QueryException $error){
                 return $error;}
     }
-    public function showAllGrups(){
+    public function showAllGroups(){
        
         try{
             return Grupo::all();
