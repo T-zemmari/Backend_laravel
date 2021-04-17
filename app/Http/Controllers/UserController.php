@@ -136,8 +136,20 @@ class UserController extends Controller
         }
        }
 
+       public function logOut(Request $request){
 
+        $id = $request->input('id');
 
+        try {
+
+            return User::where('id', '=', $id)
+            ->update(['token' => '']);
+
+        } catch(QueryException $error){
+            return $error;
+        }
+
+    }
 
 
 

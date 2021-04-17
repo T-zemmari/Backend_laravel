@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  Route::get('/profile/{nickname}',[UserController::class, 'getUserByNickname']);
  Route::put('/update',[UserController::class,'updateUser']);
  Route::delete('/remove',[UserController::class,'deleteUser']);
-
+ Route::post('/logout',[UserController::class,'logOut']);
  //Game Routes
 
  
