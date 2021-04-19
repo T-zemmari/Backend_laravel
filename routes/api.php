@@ -32,9 +32,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  //Membresia Routes
 
- Route::post('/Party',[MembresiaController::class,'addParty']);
+ Route::post('/profile/{id}/Party',[MembresiaController::class,'WekcomeToParty']);
  Route::get('/Parties',[MembresiaController::class,'getAllParties']);
  Route::get('/Parties',[MembresiaController::class,'getPartyByGameId']);
+ Route::get('/profile/{id}/myparties',[MembresiaController::class , 'getMyParties']);
+
  //Group Routes
 
  Route::post('/groups',[GrupoController::class,'addGroup']);

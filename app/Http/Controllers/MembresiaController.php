@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\Input;
 class MembresiaController extends Controller
 {
     
-    public function addParty(Request $request){
+    public function WekcomeToParty(Request $request){
 
         $userId = $request->Input('userid');
         $groupId = $request->Input('grupoid');
@@ -26,6 +26,23 @@ class MembresiaController extends Controller
         }catch (QueryException $error){
                 return $error;}
     }
+
+    public function logoutFormParty(Request $request){
+
+        $ID = $request->input('id');
+
+        return Membresia::where('id' ,'=', $ID)->delete();
+    }
+
+    public function getMyParties(Request $request){
+
+        $userID = $request->input('userid');
+
+        return Membresia:: all()->where('userid' , 'LIKE' , $userID);
+    }
+
+    
+
 
 
 }
