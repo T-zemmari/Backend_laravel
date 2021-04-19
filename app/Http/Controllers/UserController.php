@@ -113,12 +113,13 @@ class UserController extends Controller
         
         $userId = $request->input('id');
         try{
-        return User:: where('id','=',$userId)->update(
+
+        return [User:: where('id','=',$userId)->update(
             [
                 'name' => $name,
                 'phone' =>$phone,
                 'adress'=>$adress
-            ]);
+            ]),'Sucsess'=>"Usuario Actualizado Con Excito"];
        }catch(QueryException $error){
         return $error;
      }
@@ -139,11 +140,12 @@ class UserController extends Controller
        public function logOut(Request $request){
 
         $id = $request->input('id');
+        
 
         try {
 
-            return User::where('id', '=', $id)
-            ->update(['token' => '']);
+            return [User::where('id', '=', $id)
+            ->update(['token' => '']),'Sucsess'=>'Todo Ok , Logout Con Excito'];
 
         } catch(QueryException $error){
             return $error;
