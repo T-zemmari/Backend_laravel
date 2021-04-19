@@ -53,14 +53,14 @@ class UserController extends Controller
            $password = Hash::make($password);
 
         try{
-            return User::create([
+            return [ 'Success'=>'Enhorabuena Ya Estas Registrado',User::create([
                 'nickname' => $nickname,
                 'name' => $name,
                 'password' => $password,
                 'email' => $email,
                 'phone' =>$phone,
                 'adress'=>$adress
-            ]);
+            ])];
             } catch (QueryException $error){
             return $error;
         }
@@ -89,8 +89,8 @@ class UserController extends Controller
                 $token = bin2hex(random_bytes(50));
                 User::where('email',$email)
                 ->update(['token' => $token]);
-                return User::where('email', 'LIKE', $email)
-                ->get();
+                return ['Success'=>'Ya Estas Logueado' ,User::where('email', 'LIKE', $email)
+                ->get(),];
             
             }else{
                 return response()->json([
@@ -119,7 +119,7 @@ class UserController extends Controller
                 'name' => $name,
                 'phone' =>$phone,
                 'adress'=>$adress
-            ]),'Sucsess'=>"Usuario Actualizado Con Excito"];
+            ]),'Success'=>"Usuario Actualizado Con Exito"];
        }catch(QueryException $error){
         return $error;
      }
@@ -145,7 +145,7 @@ class UserController extends Controller
         try {
 
             return [User::where('id', '=', $id)
-            ->update(['token' => '']),'Sucsess'=>'Todo Ok , Logout Con Excito'];
+            ->update(['token' => '']),'Success'=>'Todo Ok , Logout Con Exito'];
 
         } catch(QueryException $error){
             return $error;
