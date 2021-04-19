@@ -12,15 +12,23 @@ class Grupo extends Model
     protected $fillable = 
     [
     'name',
-    'owner',
-    'userId',
-    'gameId'
+    'gameid'
     ];
 
 
     public function membresia()
     {
         return $this->hasMany('App\Models\Membresia','grupoid');
+    }
+
+    public function game()
+    {
+        return $this->belongsTo('App\Models\Game','gameid', 'id');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Models\Message','grupoid');
     }
 }
 

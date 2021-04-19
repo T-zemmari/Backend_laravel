@@ -20,4 +20,5 @@ class Membresia extends Model
     {
         return $this->belongsTo('App\Models\Grupo','grupoid','id');
     }
+    
 }

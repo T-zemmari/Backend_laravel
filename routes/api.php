@@ -34,7 +34,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  Route::post('/Party',[MembresiaController::class,'addParty']);
  Route::get('/Parties',[MembresiaController::class,'getAllParties']);
-
+ Route::get('/Parties',[MembresiaController::class,'getPartyByGameId']);
  //Group Routes
 
  Route::post('/groups',[GrupoController::class,'addGroup']);

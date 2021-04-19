@@ -16,7 +16,11 @@ class CreateGrupos extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('owner');
+            $table->unsignedBigInteger('gameid')->nullable();
+            $table->foreign('gameid', 'fk_grupo_games')
+            ->on('games')
+            ->references('id')
+            ->onDelete('set null');;
             $table->timestamps();
         });
     }

@@ -26,12 +26,6 @@ class MembresiaController extends Controller
         }catch (QueryException $error){
                 return $error;}
     }
-    public function getAllParties(){
-       
-        try{
-            return Membresia::all();
-        }catch (QueryException $error){
-            return $error;}
-    }
+
 
 }

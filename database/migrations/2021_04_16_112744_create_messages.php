@@ -16,6 +16,16 @@ class CreateMessages extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('from');
+            $table->unsignedBigInteger('userid');
+            $table->foreign('userid', 'fk_messages_users')
+            ->on('users')
+            ->references('id')
+            ->onDelete('cascade');
+            $table->unsignedBigInteger('grupoid');
+            $table->foreign('grupoid', 'fk_messages_grupos')
+            ->on('grupos')
+            ->references('id')
+            ->onDelete('cascade');
             $table->string('message');
             $table->timestamps();
         });

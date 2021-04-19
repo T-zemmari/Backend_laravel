@@ -16,4 +16,13 @@ class Game extends Model
     'about',
     ];
 
+
+    public function grupo()
+    {
+        return $this->hasMany('App\Models\Grupo','gameid');
+    }
+
+    
 }
+
+

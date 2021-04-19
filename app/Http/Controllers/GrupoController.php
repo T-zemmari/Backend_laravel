@@ -11,16 +11,12 @@ class GrupoController extends Controller
     public function addGroup(Request $request){
 
         $name = $request->Input('name');
-        $nickname = $request->Input('owner');
-        $userid = $request->input('userid');
         $gameid =$request->input('gameid');
 
         try{
             return Grupo::create([
 
                 'name'=>$name,
-                'owner'=>$nickname,
-                'userid'=>$userid,
                 'gameid'=>$gameid
               ]);
 
@@ -33,5 +29,24 @@ class GrupoController extends Controller
             return Grupo::all();
         }catch (QueryException $error){
             return $error;}
+    }
+
+    public function getAllGroup(){
+       
+        try{
+            return Grupo::all();
+        }catch (QueryException $error){
+            return $error;}
+    }
+
+    public function getGroupByGameId(Request $request){
+
+        $gameId = $request->Input('gameId');
+        
+        try{
+            return Grupo::all()->where('gameId','=' ,$gameId);
+        }catch (QueryException $error){
+            return $error;}
+
     }
 }
