@@ -45,4 +45,17 @@ class MessageController extends Controller
             return $error;
         }
       }
+
+          public function getMessagesByUserid(Request $request,$userid){
+
+              try{
+           
+                 return Message::where('userid','=',$userid)->get();
+
+             }catch(QueryException $error){
+           return $error;
+   }
+ }
+
+
 }
