@@ -11,6 +11,9 @@ use Symfony\Component\Console\Input\Input;
 class MembresiaController extends Controller
 {
     
+
+    //......Crear partida nueva--------//
+
     public function WekcomeToParty(Request $request){
 
         $userId = $request->Input('userid');
@@ -27,6 +30,8 @@ class MembresiaController extends Controller
                 return $error;}
     }
 
+    //......Salir de una partida.......//
+
     public function logoutFormParty(Request $request){
 
         $ID = $request->input('id');
@@ -34,6 +39,9 @@ class MembresiaController extends Controller
         return Membresia::where('id' ,'=', $ID)->delete();
     }
 
+
+    //.........Mis partidas..............//
+    
     public function getMyParties(Request $request ){
 
         $userID = $request->input('userid');
