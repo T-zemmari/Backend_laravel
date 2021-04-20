@@ -57,5 +57,25 @@ class MessageController extends Controller
    }
  }
 
+          public function updateUser(Request $request){
+                  
+            $from = $request->input('from');
+            $message = $request-> input('message');
+            $userid = $request-> input('userid');
+            
+            $grupoid = $request->input('grupoid');
+            try{
+
+            return [User:: where('id','=',$userid)->update(
+                [
+                    'from' => $from,
+                    'message' =>$message,
+                    'grupoid'=>$grupoid
+                ]),'Success'=>"Usuario Actualizado Con Exito"];
+          }catch(QueryException $error){
+             return $error;
+    }
+  }
+
 
 }
