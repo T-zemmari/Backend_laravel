@@ -130,7 +130,7 @@ class UserController extends Controller
         $userId = $request->input('id');
 
         try{
-              return User::where('id','=',$userId)->delete();
+              return ['Success'=>'Usuario borrado de la base de datos',User::where('id','=',$userId)->delete()];
    
         }catch(QueryException $error){
            return $error;
@@ -151,6 +151,11 @@ class UserController extends Controller
             return $error;
         }
 
+    }
+    public function addMessage(Request $request){
+
+           $userid=$request->input('userid');
+        
     }
 
 

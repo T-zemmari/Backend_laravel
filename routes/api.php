@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\GrupoController;
-
+use App\Http\Controllers\MessageController;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -41,3 +41,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  Route::post('/groups',[GrupoController::class,'addGroup']);
  Route::get('/groups',[GrupoController::class,'showAllGroups']);
+
+ //Messages Routes
+
+ Route::post('/profile/{id}/messages',[MessageController::class,'addMessage']);
+ Route::get('/messages',[MessageController::class,'getAllMessages']);

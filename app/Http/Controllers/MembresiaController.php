@@ -34,12 +34,14 @@ class MembresiaController extends Controller
         return Membresia::where('id' ,'=', $ID)->delete();
     }
 
-    public function getMyParties(Request $request){
+    public function getMyParties(Request $request ){
 
         $userID = $request->input('userid');
 
-        return Membresia:: all()->where('userid' , 'LIKE' , $userID);
+        return Membresia:: where('userid' , 'LIKE' , $userID)->get();
     }
+
+    
 
     
 
