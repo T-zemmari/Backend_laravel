@@ -53,21 +53,24 @@ The endpoints used in this API Rest backend for each model were:
 - http://127.0.0.1:8000/update - PUT
 
 <strong>Game</strong>
-- http://127.0.0.1:8000/game/{id} - DELETE
 - http://127.0.0.1:8000/game - POST
 - http://127.0.0.1:8000/game - GET
-- http://127.0.0.1:8000/game/{id} - GET
+
+<strong>Group</strong>
+- http://127.0.0.1:8000/groups - POST
+- http://127.0.0.1:8000/groups - GET
 
 <strong>Party</strong>
-- http://127.0.0.1:8000/party - POST
-- http://127.0.0.1:8000/party/game/{id} - GET
-- http://127.0.0.1:8000/party/login - POST
-- http://127.0.0.1:8000/party/logout - POST
+- http://127.0.0.1:8000/profile/{id}party - POST
+- http://127.0.0.1:8000/parties - GET
+- http://127.0.0.1:8000/parties - GET
+- http://127.0.0.1:8000/profile/{id}/myparties - GET
 
 <strong>Message</strong>
-- http://127.0.0.1:8000/message - POST
-- http://127.0.0.1:8000/message/{id} - DELETE
-- http://127.0.0.1:8000/message/{id} - GET
+- http://127.0.0.1:8000/profile/{id}/messages - POST
+- http://127.0.0.1:8000/messages/{id} - DELETE
+- http://127.0.0.1:8000/messages/{id} - GET
+- http://127.0.0.1:8000/profile/messages/{id} - UPDATE
 
 
 ScreenShot Register:
