@@ -63,7 +63,10 @@ class MessageController extends Controller
 
       //.........listar mensajes de un usuario..........//
 
-          public function getMessagesByUserid(Request $request,$userid){
+          public function getMessagesByid(Request $request){
+
+            
+             $userid=$request->input('userid');
 
               try{
            
@@ -79,42 +82,47 @@ class MessageController extends Controller
             }
  }
 
-          public function updateUser(Request $request){
+          public function updateMessage(Request $request){
                   
-            $from = $request->input('from');
-            $message = $request-> input('message');
-            $userid = $request-> input('userid');
             
-            $grupoid = $request->input('grupoid');
+            $message = $request-> input('message');
+            $messageID=$request->input('messageid');
+            
+         
             try{
 
-            return [User:: where('id','=',$userid)->update(
-                [
-                    'from' => $from,
-                    'message' =>$message,
-                    'grupoid'=>$grupoid
-                ]),'Success'=>"Usuario Actualizado Con Exito"];
+            return 
+            
+              [
+                Message:: where('id','=',$messageID)->update(
+                ['message' =>$message]),
+                'Success'=>"Mensaje modiicado ",
+                'Mensaje Modificado' => $message
+
+              ];
           }catch(QueryException $error){
              return $error;
     }
   }
       //..........borrar mensajes...........................//
 
-      public function removeMessage(Request $request,$id){
+      public function removeMessage(Request $request){
 
-       $idMessge=$request->input('idMessage');
+       $idMessge=$request->input('id');
        $userid = $request->input('userid');
+       $Message = Message::where('userid','=',$userid)->where('id','=',$idMessge)->first();
+       $idUserInMessager =$Message['userid'];
 
-       $user = User::where('id','=',$userid)->get();
+       
         try{
-
-          if($userid !== $user['id']){
-            return ['Status'=>"No puedes borrar mensajes que no son de tu propiedad"];
-          }else{
-           
-          return ['Success'=>'Mensaje borrado con exito',
-          Message::where('id','=',$idMessge)->delete()];
-          }
+            if($userid == $idUserInMessager){
+              return [
+                      'Success'=>'Mensaje borrado con exito',
+                       $Message->delete()
+                     ];
+            }else{
+              return ['Status'=>"No puedes borrar mensajes que no son de tu propiedad"];
+            }
       }catch(QueryException $error){
         
           return $error;

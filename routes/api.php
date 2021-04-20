@@ -47,5 +47,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  Route::post('/profile/{id}/messages',[MessageController::class,'addMessage']);
  Route::get('/messages',[MessageController::class,'getAllMessages']);
  Route::get('/messages/{id}',[MessageController::class,'getMessagesById']);
- Route::update('/profile/messages/{id}',[MessageController::class,'updateMessage']);
+ Route::put('/profile/{id}/messages',[MessageController::class,'updateMessage']);
  Route::delete('/profile/{id}/messages/delete',[MessageController::class,'removeMessage']);
