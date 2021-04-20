@@ -23,9 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  Route::put('/update',[UserController::class,'updateUser']);
  Route::delete('/remove',[UserController::class,'deleteUser']);
  Route::post('/logout',[UserController::class,'logOut']);
+
  //Game Routes
 
- 
  Route::post('/addGame', [GameController::class, 'createGame']);
  Route::get('/Game',[GameController::class,'indexGame']);
 
@@ -47,3 +47,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  Route::post('/profile/{id}/messages',[MessageController::class,'addMessage']);
  Route::get('/messages',[MessageController::class,'getAllMessages']);
  Route::get('/messages/{id}',[MessageController::class,'getMessagesById']);
+ Route::delete('/profile/{id}/messages/delete',[MessageController::class,'removeMessage']);
