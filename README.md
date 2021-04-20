@@ -70,6 +70,17 @@ The endpoints used in this API Rest backend for each model were:
 - http://127.0.0.1:8000/message/{id} - GET
 
 
+ScreenShot Register:
+
+![Register](https://user-images.githubusercontent.com/76817211/115438546-cf3ba800-a20d-11eb-97bf-6b2dedb67e0c.png)
+
+
+ScreenShot Login:
+
+![Login](https://user-images.githubusercontent.com/76817211/115438829-26417d00-a20e-11eb-8e0f-9274611edc04.png)
+
+
+
 
 ###  ⛏️  Start Project <a name="start-project"></a>
 

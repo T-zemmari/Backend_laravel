@@ -27,7 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  
  Route::post('/addGame', [GameController::class, 'createGame']);
- Route::get('/addGame',[GameController::class,'indexGame']);
+ Route::get('/Game',[GameController::class,'indexGame']);
 
 
  //Membresia Routes
