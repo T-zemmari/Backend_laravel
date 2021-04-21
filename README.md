@@ -36,6 +36,23 @@ This is a basic example of relational table about our project, emulating a struc
 <!-- ![tabla](https://user-images.githubusercontent.com/77154578/115294688-321f3780-a159-11eb-9cb4-f73bba550630.png) -->
 
 
+###  ⛏️  Start Project <a name="start-project"></a>
+
+A step by step series of examples that tell you how to get a development env running.
+
+Download or clone the code:
+
+
+[(Backend repository)](https://github.com/T-zemmari/Backend_laravel/tree/develop)
+
+ * compose install   (to install all dependencies)
+
+The default ports for this development environment are:
+- Laravel 8000
+- Phpmyadmin 8080
+- MySql 3306
+
+
 
 ## 🎈 Testing with Postman <a name="testing"></a>
 
@@ -86,14 +103,7 @@ ScreenShot Login:
 
 
 
-###  ⛏️  Start Project <a name="start-project"></a>
 
-A step by step series of examples that tell you how to get a development env running.
-
-The default ports for this development environment are:
-- Laravel 8000
-- Phpmyadmin 8080
-- MySql 3306
 
 ## ✍️ Authors <a name = "authors"></a>
 
