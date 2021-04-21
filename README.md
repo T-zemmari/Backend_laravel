@@ -26,6 +26,7 @@
 - [Docker](https://docs.docker.com/) - Server Deployment
 
 
+This is a valid backend for a frontend that wants to achieve that users register, make a login, create a game, and be able to chat with each other.
 
 
 ## 💡 Relational Table <a name = "relational_table"></a>
