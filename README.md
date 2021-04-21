@@ -33,7 +33,8 @@ This is a valid backend for a frontend that wants to achieve that users register
 
 This is a basic example of relational table about our project, emulating a structure database of a LCG web. 
 
-<!-- ![tabla](https://user-images.githubusercontent.com/77154578/115294688-321f3780-a159-11eb-9cb4-f73bba550630.png) -->
+![relation-table](https://user-images.githubusercontent.com/68609470/115438645-ef6b6700-a20d-11eb-9c0d-5e04ea585133.png)
+
 
 
 ###  ⛏️  Start Project <a name="start-project"></a>
@@ -58,7 +59,7 @@ The default ports for this development environment are:
 
 You can prove this backend running it in Postman: 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/240745e8fa1d32750cbd?action=collection%2Fimport)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e289d3dc0a8cc10e497d)
 
 The endpoints used in this API Rest backend for each model were: 
 
