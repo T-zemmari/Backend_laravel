@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 
-<p align="center"> This is our first project using Laravel, the PHP ORM.
+<p align="center"> Our first project using Laravel
     <br> 
 </p>
 
@@ -45,7 +45,7 @@ Download or clone the code:
 
 [(Backend repository)](https://github.com/T-zemmari/Backend_laravel/tree/develop)
 
- * compose install   (to install all dependencies)
+* compose install  (to install all dependencies)
 
 The default ports for this development environment are:
 - Laravel 8000
